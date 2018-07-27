@@ -8,4 +8,4 @@ NgRx demo app steps
   ng config schematics.@schematics/angular.component.spec false
 - Install bootstrap@3 and add link to min.css under the styles array in angular.json
   "node_modules/bootstrap/dist/css/bootstrap.min.css"
-- 
+- create navbar in the app.component
