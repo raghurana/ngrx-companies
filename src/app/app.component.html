@@ -1,9 +1,9 @@
 
 <nav class="navbar navbar-default">
-    <a class="navbar-brand">ngrx companies</a>
+    <a class="navbar-brand" [routerLink]="['/home']">ngrx companies</a>
     <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#">Companies</a>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a [routerLink]="['/company/list']">Companies</a>
         </li>
     </ul>
 </nav>
