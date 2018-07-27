@@ -16,3 +16,6 @@ NgRx demo app steps
 - add home routing module under the home folder
   ng g module home/home-routing --flat --module=home --no-spec
 - create app routing module than route to the home module and show the home component in the router-outlet
+- in the app-routing.module the home module can be lazily loaded using the loadChildren method on the Routes collection
+- make sure to use RouterModule.forChild(routes) in the home-routing module
+- next, add company module with company list component and get routerLink working in the app component.
