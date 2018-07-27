@@ -15,4 +15,4 @@ NgRx demo app steps
   ng g c home/home
 - add home routing module under the home folder
   ng g module home/home-routing --flat --module=home --no-spec
-- 
+- create app routing module than route to the home module and show the home component in the router-outlet
