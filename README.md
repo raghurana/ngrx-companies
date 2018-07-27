@@ -19,3 +19,10 @@ NgRx demo app steps
 - in the app-routing.module the home module can be lazily loaded using the loadChildren method on the Routes collection
 - make sure to use RouterModule.forChild(routes) in the home-routing module
 - next, add company module with company list component and get routerLink working in the app component.
+- basic setup is complete. next, get some raw json rendering in the company list component, this would require calling an api
+
+----
+
+- create a new model interface company to store the api data.
+- next, we need to create some actions so we import @ngrx/store via npm
+- define union type for all company actions.
