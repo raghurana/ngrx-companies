@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Company } from './models/company';
@@ -23,6 +23,23 @@ export class CompanyService {
       map(data => data.json()),
       catchError(this.errorHandler)
     );
+  }
+
+  addCompany(company: Company) {
+    const h = new Headers({ 'content-type': 'application/json' });
+    const options = new RequestOptions({ headers: h });
+
+    return this.http.post(`${this.API_BASE}/company`, JSON.stringify(company), options).pipe(
+      map(response => response.json()),
+      catchError(this.errorHandler));
+  }
+
+  updateCompany(company: Company) {
+    const headers = new Headers({ 'content-type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this.http.put(`${this.API_BASE}/company/${company.id}`, JSON.stringify(company), options).pipe(
+      map(response => response.json()),
+      catchError(this.errorHandler));
   }
 
   errorHandler(error) {
