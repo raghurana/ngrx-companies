@@ -14,11 +14,11 @@ export class CompanyEffects {
   @Effect()
   loadCompanies$ = this.action$
     .ofType(CompanyActions.LOAD_COMPANIES)
-    .pipe(switchMap(this.getApiCompanyData));
+    .pipe(switchMap(() => this.getApiCompanyData()));
 
   private getApiCompanyData() {
     return this.companyService
-      .loadCompanies()
+      .getCompanies()
       .pipe(
         map(
           apiCompanyData =>

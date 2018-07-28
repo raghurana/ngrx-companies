@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Company } from './models/company';
 
 @Injectable()
 export class CompanyService {
@@ -11,8 +12,7 @@ export class CompanyService {
 
   constructor(private http: Http) { }
 
-  loadCompanies() {
-    console.log('loadCompanies called');
+  getCompanies(): Observable<Company[]> {
     return this
       .http
       .get(`${this.API_BASE}/company`)
@@ -23,7 +23,7 @@ export class CompanyService {
     }
 
   errorHandler(error) {
-    console.error('CUSTOM ERROR');
+    console.error('Api Error');
     return Observable.throw(error);
   }
 
