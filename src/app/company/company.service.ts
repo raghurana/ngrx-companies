@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Company } from './models/company';
 
@@ -24,7 +24,7 @@ export class CompanyService {
 
   errorHandler(error) {
     console.error('Api Error');
-    return Observable.throw(error);
+    return throwError(error);
   }
 
 }
