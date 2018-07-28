@@ -1,6 +1,9 @@
 
+
 <h1>All Companies</h1>
-<br/>
+
+<button class="btn btn-success btn-new" [routerLink]="['/company/edit', 'new']">Add New</button>
+
 <app-company-list-item
   [companies]="companies$ | async">
 </app-company-list-item>
