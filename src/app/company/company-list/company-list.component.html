@@ -5,7 +5,8 @@
 <button class="btn btn-success btn-new" [routerLink]="['/company/edit', 'new']">Add New</button>
 
 <app-company-list-item
-  [companies]="companies$ | async">
+  [companies]="companies$ | async"
+  (deleteCompany)="onDeleteCompany($event)" >
 </app-company-list-item>
 
 

@@ -21,4 +21,8 @@ export class CompanyListComponent implements OnInit {
     this.companies$ = this.store.select(state => state.companyData.companies);
   }
 
+  onDeleteCompany(companyId: number) {
+    alert(String(companyId));
+  }
+
 }

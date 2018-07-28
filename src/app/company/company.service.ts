@@ -42,6 +42,12 @@ export class CompanyService {
       catchError(this.errorHandler));
   }
 
+  deleteCompany(companyId: number): Observable<any> {
+    return this.http.delete(`${this.API_BASE}/company/${companyId}`).pipe(
+      map((response: Response) => response.json()),
+      catchError(this.errorHandler));
+  }
+
   errorHandler(error) {
     console.error('Api Error');
     return throwError(error);
