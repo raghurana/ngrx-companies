@@ -25,7 +25,10 @@ export class CompanyEditComponent implements OnInit {
       phone: ['']
     });
 
+  }
 
+  onSaveCompany() {
+    alert('save');
   }
 
 }
