@@ -9,6 +9,7 @@ import { routes as CompanyRoutes } from './company.routes';
     CommonModule,
     RouterModule.forChild(CompanyRoutes)
   ],
-  declarations: [CompanyListComponent]
+  declarations: [CompanyListComponent],
+  providers: []
 })
 export class CompanyModule { }

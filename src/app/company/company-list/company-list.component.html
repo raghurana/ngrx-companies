@@ -1,4 +1,10 @@
 
 <p>
-  company-list will be displayed here !
+  All Companies
 </p>
+
+<ul>
+  <li *ngFor="let company of companies$ | async">
+    {{ company | json }}
+  </li>
+</ul>

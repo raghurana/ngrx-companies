@@ -5,12 +5,12 @@ export const LOAD_COMPANIES = 'LOAD_COMPANIES;';
 export const LOAD_COMPANIES_SUCCESS = 'LOAD_COMPANIES_SUCCESS;';
 
 export class LoadCompaniesAction implements Action {
-    readonly type: string = LOAD_COMPANIES;
+    readonly type = LOAD_COMPANIES;
     constructor() {}
 }
 
 export class LoadCompaniesSuccessAction implements Action {
-  readonly type: string = LOAD_COMPANIES_SUCCESS;
+  readonly type = LOAD_COMPANIES_SUCCESS;
   constructor(public payload: Company[]) {}
 }
 

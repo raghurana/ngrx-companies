@@ -26,3 +26,8 @@ NgRx demo app steps
 - create a new model interface company to store the api data.
 - next, we need to create some actions so we import @ngrx/store via npm
 - define union type for all company actions.
+- create a company state interface and initial state with empty array.
+- create the companyReducer
+- define store module root for companydata in app module
+  StoreModule.forRoot({ companyData: companyReducer })
+- create a company service to fetch the api data
