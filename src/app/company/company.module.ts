@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CompanyRoutingModule } from './company-routing.module';
+import { RouterModule } from '@angular/router';
 import { CompanyListComponent } from './company-list/company-list.component';
+import { routes as CompanyRoutes } from './company.routes';
 
 @NgModule({
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    RouterModule.forChild(CompanyRoutes)
   ],
   declarations: [CompanyListComponent]
 })
