@@ -16,14 +16,22 @@ export class CompanyEffects {
     .ofType(CompanyActions.LOAD_COMPANIES)
     .pipe(switchMap(() => this.getApiCompanyData()));
 
+  @Effect()
+  deleteCompany$ = this.action$
+    .ofType(CompanyActions.DELETE_COMPANY)
+    .pipe(switchMap((action: CompanyActions.DeleteCompanyAction) => this.deleteCompanyById(action.payload)));
+
   private getApiCompanyData() {
-    return this.companyService
+    return this
+      .companyService
       .getCompanies()
-      .pipe(
-        map(
-          apiCompanyData =>
-            new CompanyActions.LoadCompaniesSuccessAction(apiCompanyData)
-        )
-      );
+      .pipe(map(data => new CompanyActions.LoadCompaniesSuccessAction(data)));
+  }
+
+  private deleteCompanyById(companyId: number) {
+    return this
+      .companyService
+      .deleteCompany(companyId)
+      .pipe(map((company) => new CompanyActions.DeleteCompanySuccessAction(company.id)));
   }
 }

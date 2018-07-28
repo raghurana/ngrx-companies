@@ -22,7 +22,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   onDeleteCompany(companyId: number) {
-    alert(String(companyId));
+    this.store.dispatch(new CompanyActions.DeleteCompanyAction(companyId));
   }
 
 }

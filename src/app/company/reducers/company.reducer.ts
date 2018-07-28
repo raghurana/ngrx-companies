@@ -9,5 +9,11 @@ export function companyReducer(state = initialState, action: Actions.CompanyActi
     };
   }
 
+  if (action.type === Actions.DELETE_COMPANY_SUCCESS) {
+    return state = {
+      companies: state.companies.filter(c => c.id !== action.payload)
+    };
+  }
+
   return state;
 }

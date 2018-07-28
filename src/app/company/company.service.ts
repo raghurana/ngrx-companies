@@ -44,7 +44,7 @@ export class CompanyService {
 
   deleteCompany(companyId: number): Observable<any> {
     return this.http.delete(`${this.API_BASE}/company/${companyId}`).pipe(
-      map((response: Response) => response.json()),
+      map(response => response.json()),
       catchError(this.errorHandler));
   }
 
