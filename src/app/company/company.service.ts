@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable, throwError } from 'rxjs';
@@ -10,21 +9,24 @@ export class CompanyService {
 
   API_BASE = 'http://firebootcamp-crm-api.azurewebsites.net/api';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
   getCompanies(): Observable<Company[]> {
-    return this
-      .http
-      .get(`${this.API_BASE}/company`)
-      .pipe(
-          map(data => data.json()),
-          catchError(this.errorHandler)
-      );
-    }
+    return this.http.get(`${this.API_BASE}/company`).pipe(
+      map(data => data.json()),
+      catchError(this.errorHandler)
+    );
+  }
+
+  getCompanyById(companyId: number) {
+    return this.http.get(`${this.API_BASE}/company/${companyId}`).pipe(
+      map(data => data.json()),
+      catchError(this.errorHandler)
+    );
+  }
 
   errorHandler(error) {
     console.error('Api Error');
     return throwError(error);
   }
-
 }
