@@ -6,20 +6,24 @@ import { switchMap, map } from 'rxjs/operators';
 
 @Injectable()
 export class CompanyEffects {
-
   constructor(
     private action$: Actions,
-    private companyService: CompanyService) {}
+    private companyService: CompanyService
+  ) {}
 
-    @Effect()
-    loadCompanies$ = this
-      .action$
-      .ofType(CompanyActions.LOAD_COMPANIES)
+  @Effect()
+  loadCompanies$ = this.action$
+    .ofType(CompanyActions.LOAD_COMPANIES)
+    .pipe(switchMap(this.getApiCompanyData));
+
+  private getApiCompanyData() {
+    return this.companyService
+      .loadCompanies()
       .pipe(
-        switchMap(() => {
-          return this
-            .companyService
-            .loadCompanies()
-            .pipe(map(apiCompanyData => new CompanyActions.LoadCompaniesSuccessAction(apiCompanyData)));
-          }));
+        map(
+          apiCompanyData =>
+            new CompanyActions.LoadCompaniesSuccessAction(apiCompanyData)
+        )
+      );
+  }
 }
