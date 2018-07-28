@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { registerContentQuery } from '../../../../node_modules/@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-company-edit',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyEditComponent implements OnInit {
 
-  constructor() { }
+  companyForm: FormGroup;
+
+  get nameInput() {
+    return this.companyForm.get('name');
+  }
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    this.companyForm = this.formBuilder.group({
+      name:  ['', Validators.required],
+      email: [''],
+      phone: ['']
+    });
+
+
   }
 
 }
