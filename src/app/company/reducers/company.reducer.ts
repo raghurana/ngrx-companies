@@ -17,6 +17,14 @@ export function companyReducer(state = initialState, action: Actions.CompanyActi
     };
   }
 
+  if (action.type === Actions.LOAD_COMPANIES_FAILED) {
+    return state = {
+      loading: false,
+      companies: state.companies,
+      errorMessage: action.payload
+    };
+  }
+
   if (action.type === Actions.DELETE_COMPANY_SUCCESS) {
     return state = {
       loading: false,

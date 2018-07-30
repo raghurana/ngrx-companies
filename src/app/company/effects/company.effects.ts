@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { CompanyService } from '../company.service';
 import * as CompanyActions from '../actions/company.actions';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class CompanyEffects {
@@ -25,7 +26,10 @@ export class CompanyEffects {
     return this
       .companyService
       .getCompanies()
-      .pipe(map(data => new CompanyActions.LoadCompaniesSuccessAction(data)));
+      .pipe(
+        map(data => new CompanyActions.LoadCompaniesSuccessAction(data)),
+        catchError(err => of(new CompanyActions.LoadCompaniesFailedAction(err)))
+      );
   }
 
   private deleteCompanyById(companyId: number) {

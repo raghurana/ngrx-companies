@@ -3,7 +3,7 @@ import { Company } from './company';
 export interface CompanyState {
   loading: boolean;
   companies: Company[];
-  errorMessage?: string;
+  errorMessage?: any;
 }
 
 export const initialState: CompanyState = {
