@@ -38,7 +38,9 @@ export class CompanyEditComponent implements OnInit {
     if (!this.isNewCompany) {
       this.companyService
           .getCompanyById(this.companyId)
-          .subscribe(c => this.companyForm.patchValue(c));
+          .subscribe(
+            c => this.companyForm.patchValue(c),
+            err => alert(err));
     }
   }
 
