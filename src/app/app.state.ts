@@ -1,6 +1,5 @@
-import { Company } from './company/models/company';
-
+import { CompanyState } from './company/models/company.state';
 
 export interface AppState {
-  companyData: { companies: Company[] };
+  companyState: CompanyState;
 }

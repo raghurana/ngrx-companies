@@ -18,7 +18,7 @@ import { CompanyService } from './company/company.service';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(AppRoutes),
-    StoreModule.forRoot({ companyData: companyReducer }),
+    StoreModule.forRoot({ companyState: companyReducer }),
     EffectsModule.forRoot([CompanyEffects])
   ],
   providers: [CompanyService],

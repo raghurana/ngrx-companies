@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, delay } from 'rxjs/operators';
 import { Company } from './models/company';
 
 @Injectable()
@@ -13,6 +13,7 @@ export class CompanyService {
 
   getCompanies(): Observable<Company[]> {
     return this.http.get(`${this.API_BASE}/company`).pipe(
+      delay(5000),
       map(data => data.json()),
       catchError(this.errorHandler)
     );

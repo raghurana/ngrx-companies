@@ -28,6 +28,6 @@ NgRx demo app steps
 - define union type for all company actions.
 - create a company state interface and initial state with empty array.
 - create the companyReducer
-- define store module root for companydata in app module
-  StoreModule.forRoot({ companyData: companyReducer })
+- define store module root for companyState in app module
+  StoreModule.forRoot({ companyState: companyReducer })
 - create a company service to fetch the api data
