@@ -4,10 +4,15 @@
 
 <button class="btn btn-success btn-new" [routerLink]="['/company/edit', 'new']">Add New</button>
 
-<app-company-list-item
-  [companies]="(companyState$ | async).companies"
-  (deleteCompany)="onDeleteCompany($event)" >
-</app-company-list-item>
+<ng-container *ngIf="(companyState$ | async) as state">
 
-<div *ngIf="(companyState$ | async).loading">Loading...</div>
+  <app-company-list-item
+    [companies]="state.companies"
+    (deleteCompany)="onDeleteCompany($event)" >
+  </app-company-list-item>
+
+  <div *ngIf="state.loading">Loading...</div>
+
+</ng-container>
+
 
